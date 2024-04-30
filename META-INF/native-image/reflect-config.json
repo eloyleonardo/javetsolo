@@ -1,0 +1,25 @@
+[
+{
+  "name":"com.caoccao.javet.interop.V8Native",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"com.caoccao.javet.interop.loader.JavetLibLoader",
+  "methods":[{"name":"<init>","parameterTypes":["com.caoccao.javet.enums.JSRuntimeType"] }, {"name":"load","parameterTypes":[] }, {"name":"setLibLoadingListener","parameterTypes":["com.caoccao.javet.interop.loader.IJavetLibLoadingListener"] }]
+},
+{
+  "name":"java.lang.Thread",
+  "fields":[{"name":"threadLocalRandomProbe"}]
+},
+{
+  "name":"java.util.concurrent.ForkJoinTask",
+  "fields":[{"name":"aux"}, {"name":"status"}]
+},
+{
+  "name":"java.util.concurrent.atomic.Striped64",
+  "fields":[{"name":"base"}, {"name":"cellsBusy"}]
+},
+{
+  "name":"jdk.internal.misc.Unsafe"
+}
+]
