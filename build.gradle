@@ -1,0 +1,46 @@
+plugins {
+	id 'java'
+	id 'application'
+    id 'org.graalvm.buildtools.native' version '0.10.1'
+}
+
+group = 'com.eloyleonardo.javet.javetlab'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '17'
+}
+
+tasks.named('jar') {
+    manifest {
+        attributes["Main-Class"] = 'com.eloyleonardo.javet.javetlab.JavetlabApplication'
+    }
+    configurations["compileClasspath"].forEach { file ->
+        from(zipTree(file.absoluteFile))
+    }
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'com.caoccao.javet:javet-macos:3.1.1'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+graalvmNative {
+    binaries {
+        main {
+            imageName = "my-app"
+            mainClass = "com.eloyleonardo.javet.javetlab.JavetlabApplication"
+        }
+    }
+    binaries.all {
+        buildArgs.add("--verbose")
+    }
+}
